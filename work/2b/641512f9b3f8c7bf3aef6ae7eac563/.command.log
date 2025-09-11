@@ -1,0 +1,8 @@
+--2025-09-11 12:11:56--  https://prophage-db.s3.amazonaws.com/prophage_db.dmnd
+Resolving prophage-db.s3.amazonaws.com (prophage-db.s3.amazonaws.com)... 16.15.203.54, 3.5.6.179, 16.182.74.73, ...
+Connecting to prophage-db.s3.amazonaws.com (prophage-db.s3.amazonaws.com)|16.15.203.54|:443... connected.
+HTTP request sent, awaiting response... 404 Not Found
+2025-09-11 12:12:01 ERROR 404: Not Found.
+
+cp: '.command.out' and '/homes/tylerdoe/pipelines/phage_analysis_pipeline/work/2b/641512f9b3f8c7bf3aef6ae7eac563/.command.out' are the same file
+cp: '.command.err' and '/homes/tylerdoe/pipelines/phage_analysis_pipeline/work/2b/641512f9b3f8c7bf3aef6ae7eac563/.command.err' are the same file

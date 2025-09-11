@@ -1,0 +1,263 @@
+Sep-11 12:01:49.459 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf --assemblies '/fastscratch/tylerdoe/sra_downloads/salmonella_assemblies_fasta/*.fasta' --outdir /homes/tylerdoe/salmonella_phage_results -resume
+Sep-11 12:01:49.658 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.04.2
+Sep-11 12:01:49.707 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/homes/tylerdoe/.nextflow/plugins; core-plugins: nf-amazon@2.5.2,nf-azure@1.6.0,nf-cloudcache@0.4.1,nf-codecommit@0.2.0,nf-console@1.1.3,nf-ga4gh@1.3.0,nf-google@1.13.2,nf-tower@1.9.1,nf-wave@1.4.2
+Sep-11 12:01:49.723 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Sep-11 12:01:49.725 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Sep-11 12:01:49.730 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.10.0 in 'deployment' mode
+Sep-11 12:01:49.757 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Sep-11 12:01:49.811 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /homes/tylerdoe/pipelines/phage_analysis_pipeline/nextflow.config
+Sep-11 12:01:49.819 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /homes/tylerdoe/pipelines/phage_analysis_pipeline/nextflow.config
+Sep-11 12:01:49.887 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /homes/tylerdoe/.nextflow/secrets/store.json
+Sep-11 12:01:49.897 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@5e8cda75] - activable => nextflow.secret.LocalSecretsProvider@5e8cda75
+Sep-11 12:01:49.958 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Sep-11 12:01:51.004 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Sep-11 12:01:51.010 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [friendly_franklin] DSL2 - revision: 27c25e8f62
+Sep-11 12:01:51.012 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Sep-11 12:01:51.012 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Sep-11 12:01:51.105 [main] DEBUG nextflow.Session - Session UUID: 5d34ec1e-1416-44d6-960a-17ad48dba8f6
+Sep-11 12:01:51.108 [main] DEBUG nextflow.Session - Run name: friendly_franklin
+Sep-11 12:01:51.108 [main] DEBUG nextflow.Session - Executor pool size: 2
+Sep-11 12:01:51.121 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Sep-11 12:01:51.133 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=10; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Sep-11 12:01:51.171 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 24.04.2 build 5914
+  Created: 29-05-2024 06:19 UTC (01:19 CDT)
+  System: Linux 5.14.0-570.22.1.el9_6.x86_64
+  Runtime: Groovy 4.0.21 on OpenJDK 64-Bit Server VM 11.0.20+8
+  Encoding: UTF-8 (UTF-8)
+  Process: 925679@wizard28 [10.5.18.28]
+  CPUs: 2 - Mem: 93.6 GB (48.4 GB) - Swap: 4 GB (2.9 GB)
+Sep-11 12:01:51.224 [main] DEBUG nextflow.Session - Work-dir: /homes/tylerdoe/pipelines/phage_analysis_pipeline/work [ceph]
+Sep-11 12:01:51.225 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /homes/tylerdoe/pipelines/phage_analysis_pipeline/bin
+Sep-11 12:01:51.287 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[GoogleLifeSciencesExecutor, AwsBatchExecutor, GoogleBatchExecutor]
+Sep-11 12:01:51.314 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Sep-11 12:01:51.320 [main] DEBUG nextflow.Session - Observer factory: WaveFactory
+Sep-11 12:01:51.321 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
+Sep-11 12:01:51.370 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Sep-11 12:01:51.406 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 3; maxThreads: 1000
+Sep-11 12:01:51.517 [main] DEBUG nextflow.Session - Session start
+Sep-11 12:01:51.684 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Sep-11 12:01:53.504 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:DOWNLOAD_PROPHAGE_DB` matches process PHAGE_ANALYSIS:DOWNLOAD_PROPHAGE_DB
+Sep-11 12:01:53.515 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Sep-11 12:01:53.516 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Sep-11 12:01:53.530 [main] DEBUG nextflow.executor.Executor - [warm up] executor > slurm
+Sep-11 12:01:53.540 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'slurm' > capacity: 50; pollInterval: 5s; dumpInterval: 5m 
+Sep-11 12:01:53.544 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: slurm)
+Sep-11 12:01:53.549 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'slurm' > queue-stat-interval: 1m
+Sep-11 12:01:53.697 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:VIBRANT` matches process PHAGE_ANALYSIS:VIBRANT
+Sep-11 12:01:53.704 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Sep-11 12:01:53.705 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Sep-11 12:01:53.720 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:DIAMOND_PROPHAGE` matches process PHAGE_ANALYSIS:DIAMOND_PROPHAGE
+Sep-11 12:01:53.724 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Sep-11 12:01:53.725 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Sep-11 12:01:53.752 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:CHECKV` matches process PHAGE_ANALYSIS:CHECKV
+Sep-11 12:01:53.755 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Sep-11 12:01:53.755 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Sep-11 12:01:53.771 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:PHANOTATE` matches process PHAGE_ANALYSIS:PHANOTATE
+Sep-11 12:01:53.774 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Sep-11 12:01:53.774 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Sep-11 12:01:53.823 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:COMBINE_RESULTS` matches process PHAGE_ANALYSIS:COMBINE_RESULTS
+Sep-11 12:01:53.825 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Sep-11 12:01:53.825 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Sep-11 12:01:53.893 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: PHAGE_ANALYSIS:DOWNLOAD_PROPHAGE_DB, PHAGE_ANALYSIS:VIBRANT, PHAGE_ANALYSIS:PHANOTATE, DIAMOND_PROPHAGE, CHECKV, COMBINE_RESULTS, VIBRANT, PHAGE_ANALYSIS:DIAMOND_PROPHAGE, PHAGE_ANALYSIS:COMBINE_RESULTS, PHANOTATE, DOWNLOAD_PROPHAGE_DB, PHAGE_ANALYSIS:CHECKV
+Sep-11 12:01:53.900 [main] DEBUG nextflow.Session - Igniting dataflow network (8)
+Sep-11 12:01:53.911 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PHAGE_ANALYSIS:DOWNLOAD_PROPHAGE_DB
+Sep-11 12:01:53.912 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PHAGE_ANALYSIS:VIBRANT
+Sep-11 12:01:53.912 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PHAGE_ANALYSIS:DIAMOND_PROPHAGE
+Sep-11 12:01:53.912 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PHAGE_ANALYSIS:CHECKV
+Sep-11 12:01:53.913 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PHAGE_ANALYSIS:PHANOTATE
+Sep-11 12:01:53.913 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PHAGE_ANALYSIS:COMBINE_RESULTS
+Sep-11 12:01:53.916 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_519a9652ef423dd7: /homes/tylerdoe/pipelines/phage_analysis_pipeline/./workflows/../modules/checkv.nf
+  Script_1f5f434580cb1a49: /homes/tylerdoe/pipelines/phage_analysis_pipeline/./workflows/../modules/phanotate.nf
+  Script_89e87cfd4ab768d5: /homes/tylerdoe/pipelines/phage_analysis_pipeline/./workflows/../modules/diamond_prophage.nf
+  Script_0e6274ed7beb7ea5: /homes/tylerdoe/pipelines/phage_analysis_pipeline/./workflows/../modules/vibrant.nf
+  Script_5268671bd85e18a3: /homes/tylerdoe/pipelines/phage_analysis_pipeline/main.nf
+  Script_090a305a90b56d12: /homes/tylerdoe/pipelines/phage_analysis_pipeline/./workflows/phage_analysis.nf
+  Script_99e671e91e85287d: /homes/tylerdoe/pipelines/phage_analysis_pipeline/./workflows/../modules/combine_results.nf
+Sep-11 12:01:53.917 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Sep-11 12:01:53.917 [main] DEBUG nextflow.Session - Session await
+Sep-11 12:01:53.923 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: /fastscratch/tylerdoe/sra_downloads/salmonella_assemblies_fasta/; pattern: *.fasta; options: [checkIfExists:true]
+Sep-11 12:01:54.150 [Actor Thread 8] DEBUG i.s.wave.plugin.config.WaveConfig - Wave strategy not specified - using default: [container, dockerfile, conda, spack]
+Sep-11 12:01:54.164 [Actor Thread 8] DEBUG io.seqera.wave.plugin.WaveClient - Wave config: WaveConfig(enabled:null, endpoint:https://wave.seqera.io, containerConfigUrl:[], tokensCacheMaxDuration:30m, condaOpts:CondaOpts(mambaImage=mambaorg/micromamba:1.5.8-lunar; basePackages=conda-forge::procps-ng, commands=null), spackOpts:SpackOpts(basePackages=null, commands=null), strategy:[container, dockerfile, conda, spack], bundleProjectResources:null, buildRepository:null, cacheRepository:null, retryOpts:RetryOpts(delay:450ms, maxDelay:1m 30s, maxAttempts:10, jitter:0.25), httpClientOpts:HttpOpts(), freezeMode:null, preserveFileTimestamp:null)
+Sep-11 12:01:54.343 [Actor Thread 4] INFO  nextflow.container.SingularityCache - Pulling Apptainer image docker://quay.io/biocontainers/wget:1.21.4 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-wget-1.21.4.img]
+Sep-11 12:01:54.348 [Actor Thread 2] INFO  nextflow.container.SingularityCache - Pulling Apptainer image docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-vibrant-1.2.1--pyhdfd78af_1.img]
+Sep-11 12:01:55.309 [Actor Thread 6] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=PHAGE_ANALYSIS:VIBRANT (1); work-dir=null
+  error [java.lang.IllegalStateException]: java.lang.IllegalStateException: Failed to pull singularity image
+  command: apptainer pull  --name quay.io-biocontainers-vibrant-1.2.1--pyhdfd78af_1.img.pulling.1757610114348 docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1 > /dev/null
+  status : 255
+  hint   : Try and increase apptainer.pullTimeout in the config (current is "20m")
+  message:
+    FATAL:   While making image from oci registry: error fetching image to cache: failed to get checksum for docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1: reading manifest 1.2.1--pyhdfd78af_1 in quay.io/biocontainers/vibrant: manifest unknown
+
+Sep-11 12:01:55.327 [Actor Thread 6] ERROR nextflow.processor.TaskProcessor - Error executing process > 'PHAGE_ANALYSIS:VIBRANT (1)'
+
+Caused by:
+  Failed to pull singularity image
+    command: apptainer pull  --name quay.io-biocontainers-vibrant-1.2.1--pyhdfd78af_1.img.pulling.1757610114348 docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1 > /dev/null
+    status : 255
+    hint   : Try and increase apptainer.pullTimeout in the config (current is "20m")
+    message:
+      FATAL:   While making image from oci registry: error fetching image to cache: failed to get checksum for docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1: reading manifest 1.2.1--pyhdfd78af_1 in quay.io/biocontainers/vibrant: manifest unknown
+
+
+java.lang.IllegalStateException: java.lang.IllegalStateException: Failed to pull singularity image
+  command: apptainer pull  --name quay.io-biocontainers-vibrant-1.2.1--pyhdfd78af_1.img.pulling.1757610114348 docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1 > /dev/null
+  status : 255
+  hint   : Try and increase apptainer.pullTimeout in the config (current is "20m")
+  message:
+    FATAL:   While making image from oci registry: error fetching image to cache: failed to get checksum for docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1: reading manifest 1.2.1--pyhdfd78af_1 in quay.io/biocontainers/vibrant: manifest unknown
+
+	at nextflow.container.SingularityCache.getCachePathFor(SingularityCache.groovy:356)
+	at nextflow.container.ContainerHandler.createApptainerCache(ContainerHandler.groovy:113)
+	at nextflow.container.ContainerHandler.normalizeImageName(ContainerHandler.groovy:87)
+	at nextflow.container.resolver.DefaultContainerResolver.resolveImage0(DefaultContainerResolver.groovy:49)
+	at nextflow.container.resolver.DefaultContainerResolver.resolveImage(DefaultContainerResolver.groovy:42)
+	at io.seqera.wave.plugin.resolver.WaveContainerResolver.resolveImage(WaveContainerResolver.groovy:68)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.processor.TaskRun.containerInfo0(TaskRun.groovy:685)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.invokeMethodOnCurrentN(ScriptBytecodeAdapter.java:96)
+	at nextflow.processor.TaskRun.this$dist$invoke$1(TaskRun.groovy)
+	at nextflow.processor.TaskRun$4.methodMissing(TaskRun.groovy)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaClassImpl.invokeMissingMethod(MetaClassImpl.java:924)
+	at groovy.lang.MetaClassImpl.invokePropertyOrMissing(MetaClassImpl.java:1413)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1335)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.processor.TaskRun$4.apply(TaskRun.groovy:670)
+	at nextflow.processor.TaskRun$4.apply(TaskRun.groovy)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1705)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.processor.TaskRun.containerInfo(TaskRun.groovy:667)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.processor.TaskRun.getContainer(TaskRun.groovy:693)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.processor.TaskRun.isContainerEnabled(TaskRun.groovy:738)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.processor.TaskProcessor.createTaskHashKey(TaskProcessor.groovy:2193)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.processor.TaskProcessor.invokeTask(TaskProcessor.groovy:659)
+	at nextflow.processor.InvokeTaskAdapter.call(InvokeTaskAdapter.groovy:52)
+	at groovyx.gpars.dataflow.operator.DataflowOperatorActor.startTask(DataflowOperatorActor.java:120)
+	at groovyx.gpars.dataflow.operator.ForkingDataflowOperatorActor.access$001(ForkingDataflowOperatorActor.java:35)
+	at groovyx.gpars.dataflow.operator.ForkingDataflowOperatorActor$1.run(ForkingDataflowOperatorActor.java:58)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.IllegalStateException: Failed to pull singularity image
+  command: apptainer pull  --name quay.io-biocontainers-vibrant-1.2.1--pyhdfd78af_1.img.pulling.1757610114348 docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1 > /dev/null
+  status : 255
+  hint   : Try and increase apptainer.pullTimeout in the config (current is "20m")
+  message:
+    FATAL:   While making image from oci registry: error fetching image to cache: failed to get checksum for docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1: reading manifest 1.2.1--pyhdfd78af_1 in quay.io/biocontainers/vibrant: manifest unknown
+
+	at nextflow.container.SingularityCache.runCommand(SingularityCache.groovy:308)
+	at nextflow.container.SingularityCache.downloadContainerImage0(SingularityCache.groovy:275)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.container.SingularityCache$_downloadContainerImage_closure1.doCall(SingularityCache.groovy:243)
+	at nextflow.container.SingularityCache$_downloadContainerImage_closure1.call(SingularityCache.groovy)
+	at nextflow.file.FileMutex.lock(FileMutex.groovy:106)
+	at nextflow.container.SingularityCache.downloadContainerImage(SingularityCache.groovy:243)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.container.SingularityCache$_getLazyImagePath_closure2.doCall(SingularityCache.groovy:333)
+	at nextflow.container.SingularityCache$_getLazyImagePath_closure2.call(SingularityCache.groovy)
+	at groovyx.gpars.dataflow.LazyDataflowVariable$1.run(LazyDataflowVariable.java:70)
+	... 3 common frames omitted
+Sep-11 12:01:55.338 [Actor Thread 6] DEBUG nextflow.Session - Session aborted -- Cause: java.lang.IllegalStateException: Failed to pull singularity image
+  command: apptainer pull  --name quay.io-biocontainers-vibrant-1.2.1--pyhdfd78af_1.img.pulling.1757610114348 docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1 > /dev/null
+  status : 255
+  hint   : Try and increase apptainer.pullTimeout in the config (current is "20m")
+  message:
+    FATAL:   While making image from oci registry: error fetching image to cache: failed to get checksum for docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1: reading manifest 1.2.1--pyhdfd78af_1 in quay.io/biocontainers/vibrant: manifest unknown
+
+Sep-11 12:01:55.375 [Actor Thread 6] DEBUG nextflow.Session - The following nodes are still active:
+[process] PHAGE_ANALYSIS:DOWNLOAD_PROPHAGE_DB
+  status=ACTIVE
+  port 0: (cntrl) -     ; channel: $
+
+[process] PHAGE_ANALYSIS:VIBRANT
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] PHAGE_ANALYSIS:DIAMOND_PROPHAGE
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) OPEN  ; channel: prophage_db
+  port 2: (cntrl) -     ; channel: $
+
+[process] PHAGE_ANALYSIS:CHECKV
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] PHAGE_ANALYSIS:PHANOTATE
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] PHAGE_ANALYSIS:COMBINE_RESULTS
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: vibrant_results
+  port 1: (value) OPEN  ; channel: diamond_results
+  port 2: (value) OPEN  ; channel: checkv_results
+  port 3: (cntrl) -     ; channel: $
+
+Sep-11 12:01:55.379 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: slurm) - terminating tasks monitor poll loop
+Sep-11 12:01:55.381 [main] DEBUG nextflow.Session - Session await > all processes finished
+Sep-11 12:01:55.381 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Sep-11 12:01:55.397 [Actor Thread 3] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=PHAGE_ANALYSIS:DOWNLOAD_PROPHAGE_DB; work-dir=null
+  error [java.lang.InterruptedException]: java.lang.InterruptedException
+Sep-11 12:01:55.419 [Actor Thread 5] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=PHAGE_ANALYSIS:VIBRANT; work-dir=null
+  error [java.lang.IllegalStateException]: Cannot obtain the semaphore to fork operator's body.
+Sep-11 12:01:55.420 [Actor Thread 1] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=PHAGE_ANALYSIS:VIBRANT (2); work-dir=null
+  error [java.lang.IllegalStateException]: java.lang.IllegalStateException: Failed to pull singularity image
+  command: apptainer pull  --name quay.io-biocontainers-vibrant-1.2.1--pyhdfd78af_1.img.pulling.1757610114348 docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1 > /dev/null
+  status : 255
+  hint   : Try and increase apptainer.pullTimeout in the config (current is "20m")
+  message:
+    FATAL:   While making image from oci registry: error fetching image to cache: failed to get checksum for docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1: reading manifest 1.2.1--pyhdfd78af_1 in quay.io/biocontainers/vibrant: manifest unknown
+
+Sep-11 12:01:55.422 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
+Sep-11 12:01:55.579 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Sep-11 12:01:55.606 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

@@ -1,5 +1,6 @@
 process DOWNLOAD_PROPHAGE_DB {
-    storeDir "${params.outdir}/databases"
+    tag "prophage_db"
+    publishDir "${params.outdir}/databases", mode: 'copy'
     
     output:
     path "prophage_db.dmnd", emit: db
@@ -7,65 +8,26 @@ process DOWNLOAD_PROPHAGE_DB {
     
     script:
     """
-    # Download Prophage-DB diamond database
-    wget -O prophage_db.dmnd ${params.prophage_db_url}
+    # Download the protein FASTA file
+    wget -O prophage_proteins.fasta.gz https://datadryad.org/downloads/file_stream/3332772
     
-    # Verify download
-    if [ ! -f prophage_db.dmnd ]; then
-        echo "Failed to download Prophage-DB"
-        exit 1
-    fi
+    # Decompress the file
+    gunzip prophage_proteins.fasta.gz
     
+    # Create DIAMOND database from the protein FASTA
+    diamond makedb --in prophage_proteins.fasta --db prophage_db
+    
+    # Create versions file
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        wget: \$(wget --version | head -n1 | grep -oP 'Wget \\K[0-9.]+')
+        diamond: \$(diamond version 2>&1 | grep -oP 'diamond version \\K[0-9.]+')
+        wget: \$(wget --version 2>&1 | head -n1 | grep -oP 'Wget \\K[0-9.]+')
     END_VERSIONS
     """
     
     stub:
     """
     touch prophage_db.dmnd
-    touch versions.yml
-    """
-}
-
-process DIAMOND_PROPHAGE {
-    tag "$sample_id"
-    publishDir "${params.outdir}/diamond_prophage", mode: 'copy'
-    
-    input:
-    tuple val(sample_id), path(phages)
-    path prophage_db
-    
-    output:
-    tuple val(sample_id), path("${sample_id}_prophage_hits.tsv"), emit: results
-    path "versions.yml", emit: versions
-    
-    when:
-    phages.size() > 0
-    
-    script:
-    """
-    # Run DIAMOND BLASTX against Prophage-DB
-    diamond blastx \\
-        --query ${phages} \\
-        --db ${prophage_db} \\
-        --out ${sample_id}_prophage_hits.tsv \\
-        --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore stitle \\
-        --threads ${task.cpus} \\
-        --sensitive \\
-        --max-target-seqs 10 \\
-        --evalue 1e-5
-    
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        diamond: \$(diamond version 2>&1 | grep -oP 'diamond version \\K[0-9.]+')
-    END_VERSIONS
-    """
-    
-    stub:
-    """
-    touch ${sample_id}_prophage_hits.tsv
     touch versions.yml
     """
 }

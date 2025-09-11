@@ -1,0 +1,153 @@
+[33mNextflow 25.04.7 is available - Please consider updating your version to it(B[m
+
+ N E X T F L O W   ~  version 24.04.2
+
+Launching `main.nf` [loquacious_mclean] DSL2 - revision: 27c25e8f62
+
+[-        ] PHA…LYSIS:DOWNLOAD_PROPHAGE_DB -
+[-        ] PHAGE_ANALYSIS:VIBRANT         -
+[-        ] PHA…_ANALYSIS:DIAMOND_PROPHAGE -
+[-        ] PHAGE_ANALYSIS:CHECKV          -
+[-        ] PHAGE_ANALYSIS:PHANOTATE       -
+[-        ] PHAGE_ANALYSIS:COMBINE_RESULTS -
+
+[-        ] PHA…LYSIS:DOWNLOAD_PROPHAGE_DB -
+[-        ] PHAGE_ANALYSIS:VIBRANT         -
+[-        ] PHA…_ANALYSIS:DIAMOND_PROPHAGE -
+[-        ] PHAGE_ANALYSIS:CHECKV          -
+[-        ] PHAGE_ANALYSIS:PHANOTATE       -
+[-        ] PHAGE_ANALYSIS:COMBINE_RESULTS -
+Pulling Apptainer image docker://quay.io/biocontainers/wget:1.21.4 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-wget-1.21.4.img]
+Pulling Apptainer image docker://quay.io/biocontainers/vibrant:1.2.1--hdfd78af_3 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-vibrant-1.2.1--hdfd78af_3.img]
+
+[-        ] PHA…LYSIS:DOWNLOAD_PROPHAGE_DB | 0 of 1
+[-        ] PHAGE_ANALYSIS:VIBRANT         -
+[-        ] PHA…_ANALYSIS:DIAMOND_PROPHAGE -
+[-        ] PHAGE_ANALYSIS:CHECKV          -
+[-        ] PHAGE_ANALYSIS:PHANOTATE       -
+[-        ] PHAGE_ANALYSIS:COMBINE_RESULTS -
+Pulling Apptainer image docker://quay.io/biocontainers/wget:1.21.4 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-wget-1.21.4.img]
+Pulling Apptainer image docker://quay.io/biocontainers/vibrant:1.2.1--hdfd78af_3 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-vibrant-1.2.1--hdfd78af_3.img]
+
+executor >  slurm (1)
+[2b/641512] PHA…LYSIS:DOWNLOAD_PROPHAGE_DB | 0 of 1
+[-        ] PHAGE_ANALYSIS:VIBRANT         -
+[-        ] PHA…_ANALYSIS:DIAMOND_PROPHAGE -
+[-        ] PHAGE_ANALYSIS:CHECKV          -
+[-        ] PHAGE_ANALYSIS:PHANOTATE       -
+[-        ] PHAGE_ANALYSIS:COMBINE_RESULTS -
+Pulling Apptainer image docker://quay.io/biocontainers/wget:1.21.4 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-wget-1.21.4.img]
+Pulling Apptainer image docker://quay.io/biocontainers/vibrant:1.2.1--hdfd78af_3 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-vibrant-1.2.1--hdfd78af_3.img]
+
+executor >  slurm (1)
+[2b/641512] PHA…LYSIS:DOWNLOAD_PROPHAGE_DB | 0 of 1
+[-        ] PHAGE_ANALYSIS:VIBRANT         -
+[-        ] PHA…_ANALYSIS:DIAMOND_PROPHAGE -
+[-        ] PHAGE_ANALYSIS:CHECKV          -
+[-        ] PHAGE_ANALYSIS:PHANOTATE       -
+[-        ] PHAGE_ANALYSIS:COMBINE_RESULTS -
+Pulling Apptainer image docker://quay.io/biocontainers/wget:1.21.4 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-wget-1.21.4.img]
+Pulling Apptainer image docker://quay.io/biocontainers/vibrant:1.2.1--hdfd78af_3 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-vibrant-1.2.1--hdfd78af_3.img]
+
+executor >  slurm (1)
+[2b/641512] PHA…LYSIS:DOWNLOAD_PROPHAGE_DB | 0 of 1
+[-        ] PHAGE_ANALYSIS:VIBRANT         -
+[-        ] PHA…_ANALYSIS:DIAMOND_PROPHAGE -
+[-        ] PHAGE_ANALYSIS:CHECKV          -
+[-        ] PHAGE_ANALYSIS:PHANOTATE       -
+[-        ] PHAGE_ANALYSIS:COMBINE_RESULTS -
+Pulling Apptainer image docker://quay.io/biocontainers/wget:1.21.4 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-wget-1.21.4.img]
+Pulling Apptainer image docker://quay.io/biocontainers/vibrant:1.2.1--hdfd78af_3 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-vibrant-1.2.1--hdfd78af_3.img]
+ERROR ~ Error executing process > 'PHAGE_ANALYSIS:DOWNLOAD_PROPHAGE_DB'
+
+Caused by:
+  Process `PHAGE_ANALYSIS:DOWNLOAD_PROPHAGE_DB` terminated with an error exit status (8)
+
+
+Command executed:
+
+  # Download Prophage-DB diamond database
+  wget -O prophage_db.dmnd https://prophage-db.s3.amazonaws.com/prophage_db.dmnd
+  
+  # Verify download
+  if [ ! -f prophage_db.dmnd ]; then
+      echo "Failed to download Prophage-DB"
+      exit 1
+  fi
+  
+  cat <<-END_VERSIONS > versions.yml
+  "PHAGE_ANALYSIS:DOWNLOAD_PROPHAGE_DB":
+      wget: $(wget --version | head -n1 | grep -oP 'Wget \K[0-9.]+')
+  END_VERSIONS
+
+Command exit status:
+  8
+
+Command output:
+  (empty)
+
+Command error:
+  --2025-09-11 12:11:56--  https://prophage-db.s3.amazonaws.com/prophage_db.dmnd
+  Resolving prophage-db.s3.amazonaws.com (prophage-db.s3.amazonaws.com)... 16.15.203.54, 3.5.6.179, 16.182.74.73, ...
+  Connecting to prophage-db.s3.amazonaws.com (prophage-db.s3.amazonaws.com)|16.15.203.54|:443... connected.
+  HTTP request sent, awaiting response... 404 Not Found
+  2025-09-11 12:12:01 ERROR 404: Not Found.
+
+Work dir:
+  /homes/tylerdoe/pipelines/phage_analysis_pipeline/work/2b/641512f9b3f8c7bf3aef6ae7eac563
+
+Tip: when you have fixed the problem you can continue the execution adding the option `-resume` to the run command line
+
+ -- Check '.nextflow.log' file for details
+
+executor >  slurm (1)
+[2b/641512] PHA…LYSIS:DOWNLOAD_PROPHAGE_DB | 1 of 1, failed: 1 ✘
+[-        ] PHAGE_ANALYSIS:VIBRANT         -
+[-        ] PHA…_ANALYSIS:DIAMOND_PROPHAGE -
+[-        ] PHAGE_ANALYSIS:CHECKV          -
+[-        ] PHAGE_ANALYSIS:PHANOTATE       -
+[-        ] PHAGE_ANALYSIS:COMBINE_RESULTS -
+Pulling Apptainer image docker://quay.io/biocontainers/wget:1.21.4 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-wget-1.21.4.img]
+Pulling Apptainer image docker://quay.io/biocontainers/vibrant:1.2.1--hdfd78af_3 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-vibrant-1.2.1--hdfd78af_3.img]
+ERROR ~ Error executing process > 'PHAGE_ANALYSIS:DOWNLOAD_PROPHAGE_DB'
+
+Caused by:
+  Process `PHAGE_ANALYSIS:DOWNLOAD_PROPHAGE_DB` terminated with an error exit status (8)
+
+
+Command executed:
+
+  # Download Prophage-DB diamond database
+  wget -O prophage_db.dmnd https://prophage-db.s3.amazonaws.com/prophage_db.dmnd
+  
+  # Verify download
+  if [ ! -f prophage_db.dmnd ]; then
+      echo "Failed to download Prophage-DB"
+      exit 1
+  fi
+  
+  cat <<-END_VERSIONS > versions.yml
+  "PHAGE_ANALYSIS:DOWNLOAD_PROPHAGE_DB":
+      wget: $(wget --version | head -n1 | grep -oP 'Wget \K[0-9.]+')
+  END_VERSIONS
+
+Command exit status:
+  8
+
+Command output:
+  (empty)
+
+Command error:
+  --2025-09-11 12:11:56--  https://prophage-db.s3.amazonaws.com/prophage_db.dmnd
+  Resolving prophage-db.s3.amazonaws.com (prophage-db.s3.amazonaws.com)... 16.15.203.54, 3.5.6.179, 16.182.74.73, ...
+  Connecting to prophage-db.s3.amazonaws.com (prophage-db.s3.amazonaws.com)|16.15.203.54|:443... connected.
+  HTTP request sent, awaiting response... 404 Not Found
+  2025-09-11 12:12:01 ERROR 404: Not Found.
+
+Work dir:
+  /homes/tylerdoe/pipelines/phage_analysis_pipeline/work/2b/641512f9b3f8c7bf3aef6ae7eac563
+
+Tip: when you have fixed the problem you can continue the execution adding the option `-resume` to the run command line
+
+ -- Check '.nextflow.log' file for details
+

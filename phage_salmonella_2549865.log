@@ -1,0 +1,70 @@
+[33mNextflow 25.04.7 is available - Please consider updating your version to it(B[m
+
+ N E X T F L O W   ~  version 24.04.2
+
+Launching `main.nf` [friendly_franklin] DSL2 - revision: 27c25e8f62
+
+[-        ] PHA…LYSIS:DOWNLOAD_PROPHAGE_DB -
+[-        ] PHAGE_ANALYSIS:VIBRANT         -
+[-        ] PHA…_ANALYSIS:DIAMOND_PROPHAGE -
+
+[-        ] PHA…LYSIS:DOWNLOAD_PROPHAGE_DB -
+[-        ] PHAGE_ANALYSIS:VIBRANT         -
+[-        ] PHA…_ANALYSIS:DIAMOND_PROPHAGE -
+[-        ] PHAGE_ANALYSIS:CHECKV          -
+[-        ] PHAGE_ANALYSIS:PHANOTATE       -
+[-        ] PHAGE_ANALYSIS:COMBINE_RESULTS -
+
+[-        ] PHA…LYSIS:DOWNLOAD_PROPHAGE_DB -
+[-        ] PHAGE_ANALYSIS:VIBRANT         -
+[-        ] PHA…_ANALYSIS:DIAMOND_PROPHAGE -
+[-        ] PHAGE_ANALYSIS:CHECKV          -
+[-        ] PHAGE_ANALYSIS:PHANOTATE       -
+[-        ] PHAGE_ANALYSIS:COMBINE_RESULTS -
+Pulling Apptainer image docker://quay.io/biocontainers/wget:1.21.4 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-wget-1.21.4.img]
+Pulling Apptainer image docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-vibrant-1.2.1--pyhdfd78af_1.img]
+
+[-        ] PHA…LYSIS:DOWNLOAD_PROPHAGE_DB -
+[-        ] PHAGE_ANALYSIS:VIBRANT         -
+[-        ] PHA…_ANALYSIS:DIAMOND_PROPHAGE -
+[-        ] PHAGE_ANALYSIS:CHECKV          -
+[-        ] PHAGE_ANALYSIS:PHANOTATE       -
+[-        ] PHAGE_ANALYSIS:COMBINE_RESULTS -
+Pulling Apptainer image docker://quay.io/biocontainers/wget:1.21.4 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-wget-1.21.4.img]
+Pulling Apptainer image docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-vibrant-1.2.1--pyhdfd78af_1.img]
+ERROR ~ Error executing process > 'PHAGE_ANALYSIS:VIBRANT (1)'
+
+Caused by:
+  Failed to pull singularity image
+    command: apptainer pull  --name quay.io-biocontainers-vibrant-1.2.1--pyhdfd78af_1.img.pulling.1757610114348 docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1 > /dev/null
+    status : 255
+    hint   : Try and increase apptainer.pullTimeout in the config (current is "20m")
+    message:
+      FATAL:   While making image from oci registry: error fetching image to cache: failed to get checksum for docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1: reading manifest 1.2.1--pyhdfd78af_1 in quay.io/biocontainers/vibrant: manifest unknown
+
+
+
+ -- Check '.nextflow.log' file for details
+
+[-        ] PHA…LYSIS:DOWNLOAD_PROPHAGE_DB -
+[-        ] PHAGE_ANALYSIS:VIBRANT         -
+[-        ] PHA…_ANALYSIS:DIAMOND_PROPHAGE -
+[-        ] PHAGE_ANALYSIS:CHECKV          -
+[-        ] PHAGE_ANALYSIS:PHANOTATE       -
+[-        ] PHAGE_ANALYSIS:COMBINE_RESULTS -
+Pulling Apptainer image docker://quay.io/biocontainers/wget:1.21.4 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-wget-1.21.4.img]
+Pulling Apptainer image docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1 [cache /homes/tylerdoe/.apptainer/cache/quay.io-biocontainers-vibrant-1.2.1--pyhdfd78af_1.img]
+ERROR ~ Error executing process > 'PHAGE_ANALYSIS:VIBRANT (1)'
+
+Caused by:
+  Failed to pull singularity image
+    command: apptainer pull  --name quay.io-biocontainers-vibrant-1.2.1--pyhdfd78af_1.img.pulling.1757610114348 docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1 > /dev/null
+    status : 255
+    hint   : Try and increase apptainer.pullTimeout in the config (current is "20m")
+    message:
+      FATAL:   While making image from oci registry: error fetching image to cache: failed to get checksum for docker://quay.io/biocontainers/vibrant:1.2.1--pyhdfd78af_1: reading manifest 1.2.1--pyhdfd78af_1 in quay.io/biocontainers/vibrant: manifest unknown
+
+
+
+ -- Check '.nextflow.log' file for details
+

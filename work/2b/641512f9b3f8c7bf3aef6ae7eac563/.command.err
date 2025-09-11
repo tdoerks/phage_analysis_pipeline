@@ -1,0 +1,6 @@
+--2025-09-11 12:11:56--  https://prophage-db.s3.amazonaws.com/prophage_db.dmnd
+Resolving prophage-db.s3.amazonaws.com (prophage-db.s3.amazonaws.com)... 16.15.203.54, 3.5.6.179, 16.182.74.73, ...
+Connecting to prophage-db.s3.amazonaws.com (prophage-db.s3.amazonaws.com)|16.15.203.54|:443... connected.
+HTTP request sent, awaiting response... 404 Not Found
+2025-09-11 12:12:01 ERROR 404: Not Found.
+

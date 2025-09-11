@@ -1,0 +1,9 @@
+[33mNextflow 25.04.7 is available - Please consider updating your version to it(B[m
+
+ N E X T F L O W   ~  version 24.04.2
+
+Launching `main.nf` [stoic_torricelli] DSL2 - revision: 27c25e8f62
+
+Cannot find a component with name 'DIAMOND_PROPHAGE' in module: /homes/tylerdoe/pipelines/phage_analysis_pipeline/./workflows/../modules/diamond_prophage.nf
+
+ -- Check script './workflows/phage_analysis.nf' at line: 2 or see '.nextflow.log' file for more details
