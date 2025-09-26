@@ -1,33 +1,45 @@
 process DOWNLOAD_PROPHAGE_DB {
     tag "prophage_db"
     publishDir "${params.outdir}/databases", mode: 'copy'
-    
+    container = 'docker://staphb/diamond'
+
     output:
     path "prophage_db.dmnd", emit: db
     path "versions.yml", emit: versions
-    
+
     script:
     """
-    # Download the protein FASTA file
-    wget -O prophage_proteins.fasta.gz https://datadryad.org/downloads/file_stream/3332772
-    
-    # Decompress the file
-    gunzip prophage_proteins.fasta.gz
-    
-    # Create DIAMOND database from the protein FASTA
-    diamond makedb --in prophage_proteins.fasta --db prophage_db
-    
-    # Create versions file
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        diamond: \$(diamond version 2>&1 | grep -oP 'diamond version \\K[0-9.]+')
-        wget: \$(wget --version 2>&1 | head -n1 | grep -oP 'Wget \\K[0-9.]+')
-    END_VERSIONS
+    cp /homes/tylerdoe/databases/prophage_proteins.faa.gz .
+    gunzip prophage_proteins.faa.gz
+    diamond makedb --in prophage_proteins.faa --db prophage_db
+    echo '"DOWNLOAD_PROPHAGE_DB": {"diamond": "staphb"}' > versions.yml
     """
-    
-    stub:
+}
+
+process DIAMOND_PROPHAGE {
+    tag "$sample_id"
+    publishDir "${params.outdir}/diamond_prophage", mode: 'copy'
+    container = 'docker://staphb/diamond'
+
+    input:
+    tuple val(sample_id), path(phage_sequences)
+    path(prophage_db)
+
+    output:
+    tuple val(sample_id), path("${sample_id}_diamond_results.tsv"), emit: results
+    path "versions.yml", emit: versions
+
+    script:
     """
-    touch prophage_db.dmnd
-    touch versions.yml
+    diamond blastp \
+        --query ${phage_sequences} \
+        --db ${prophage_db} \
+        --out ${sample_id}_diamond_results.tsv \
+        --outfmt 6 \
+        --evalue 1e-5 \
+        --max-target-seqs 10 \
+        --threads ${task.cpus}
+
+    echo '"DIAMOND_PROPHAGE": {"diamond": "staphb"}' > versions.yml
     """
 }
