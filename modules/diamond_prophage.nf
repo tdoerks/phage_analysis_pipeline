@@ -9,10 +9,8 @@ process DOWNLOAD_PROPHAGE_DB {
 
     script:
     """
-    cp /homes/tylerdoe/databases/prophage_proteins.faa.gz .
-    gunzip prophage_proteins.faa.gz
-    diamond makedb --in prophage_proteins.faa --db prophage_db
-    echo '"DOWNLOAD_PROPHAGE_DB": {"diamond": "staphb"}' > versions.yml
+    cp /homes/tylerdoe/databases/prophage_db.dmnd .
+    echo '"DOWNLOAD_PROPHAGE_DB": {"database": "local_copy"}' > versions.yml
     """
 }
 
@@ -31,7 +29,7 @@ process DIAMOND_PROPHAGE {
 
     script:
     """
-    diamond blastp \
+    diamond blastx \
         --query ${phage_sequences} \
         --db ${prophage_db} \
         --out ${sample_id}_diamond_results.tsv \
