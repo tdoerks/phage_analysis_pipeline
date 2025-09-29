@@ -12,7 +12,7 @@ process CHECKV {
 
     script:
     """
-    checkv end_to_end ${phage_sequences} ${sample_id}_checkv -t ${task.cpus}
+    checkv end_to_end ${phage_sequences} ${sample_id}_checkv -t ${task.cpus} -d /homes/tylerdoe/databases/checkv-db-v1.5
     
     echo '"CHECKV": {"version": "1.0.2"}' > versions.yml
     """
