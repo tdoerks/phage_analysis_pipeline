@@ -29,14 +29,20 @@ process DIAMOND_PROPHAGE {
 
     script:
     """
-    diamond blastx \
-        --query ${phage_sequences} \
-        --db ${prophage_db} \
-        --out ${sample_id}_diamond_results.tsv \
-        --outfmt 6 \
-        --evalue 1e-5 \
-        --max-target-seqs 10 \
-        --threads ${task.cpus}
+    # Check if input file is empty
+    if [ -s ${phage_sequences} ]; then
+        diamond blastx \
+            --query ${phage_sequences} \
+            --db ${prophage_db} \
+            --out ${sample_id}_diamond_results.tsv \
+            --outfmt 6 \
+            --evalue 1e-5 \
+            --max-target-seqs 10 \
+            --threads ${task.cpus}
+    else
+        echo "No phage sequences found - creating empty results file"
+        touch ${sample_id}_diamond_results.tsv
+    fi
 
     echo '"DIAMOND_PROPHAGE": {"diamond": "staphb"}' > versions.yml
     """
